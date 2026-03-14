@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Пошук робітника {% endblock %}
+
+{% block content %}
+    <h1>Знайти робітників</h1>
+
+    <form method="get">
+        {{form.as_p}}
+        <button type="submit">Знайти</button>
+    </form>
+
+    {% if workers %}
+        <h1>Результати пошуку:</h1>
+        <ul>
+            {% for worker in workers %}
+                <li>{{worker}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

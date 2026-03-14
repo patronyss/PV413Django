@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'workers/css/worker-detail.css' %}">
+{% endblock %}
+
+{% block title %} Робітник {{worker.id}} {% endblock %}
+
+{% block content %}
+    <h1>Інфомація про робітника: {{worker.name}}</h1>
+    <h2>Зарплата: {{worker.salary}} $</h2>
+
+    {% if worker.photo %}
+        <img src="{{ worker.photo.url }}" alt="Фото профіля" class="worker-photo">
+    {% endif %}
+
+    {% if worker.note %}
+        <h2>Додаткова інформація: {{worker.note}}</h2>
+    {% else %}
+        <h2>Додаткової інфомації немає</h2>
+    {% endif %}
+
+    {% if worker.resume %}
+        <h1>Резюме {{worker.resume.date_created}}</h1>
+        <h2>{{worker.resume.description}}</h2>
+    {% else %}
+        <h1>Резюме немає</h1>
+        {% if perms.workers.add_resume %}
+        <a class="create-resume-btn" href="{% url 'resume_create' worker.id %}">Створити резюме</a>
+        {% endif %}
+{% endif %}
+{% endblock %}

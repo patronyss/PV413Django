@@ -1,0 +1,27 @@
+.create-resume-btn {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 12px 28px;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: #0774eb;
+    color: #ffffff;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.create-resume-btn:hover {
+    background-color: #022d5c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.create-resume-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}

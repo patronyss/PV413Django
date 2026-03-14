@@ -1,0 +1,96 @@
+.worker-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 10px 0 18px;
+}
+
+/* базова кнопка */
+.worker-buttons .btn {
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 10px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.3s ease;
+}
+
+/* hover — мікропідйом */
+.worker-buttons .btn:hover {
+    transform: translateY(-1px);
+}
+
+/* click — мʼяке стискання */
+.worker-buttons .btn:active {
+    transform: scale(0.94);
+}
+
+/* subtle shine */
+.worker-buttons .btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.worker-buttons .btn:hover::after {
+    left: 120%;
+}
+
+/* ===== КОЛЬОРИ ===== */
+
+/* Детальніше — фіолетова */
+.worker-buttons .details {
+    background: linear-gradient(135deg, #6a5cff, #7c6cff);
+    box-shadow: 0 4px 10px rgba(106, 92, 255, 0.35);
+}
+
+/* Редагувати — помаранчева */
+.worker-buttons .edit {
+    background: linear-gradient(135deg, #f59e0b, #ea580c);
+    box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4);
+}
+
+/* Видалити — червона */
+.worker-buttons .delete {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.45);
+}
+
+/* hover-тіні */
+.worker-buttons .details:hover {
+    box-shadow: 0 7px 16px rgba(106, 92, 255, 0.5);
+}
+
+.worker-buttons .edit:hover {
+    box-shadow: 0 7px 16px rgba(245, 158, 11, 0.55);
+}
+
+.worker-buttons .delete:hover {
+    box-shadow: 0 7px 16px rgba(239, 68, 68, 0.6);
+}
+
+.create {
+    background: linear-gradient(135deg, #00ff92, #00ff2b);
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.45);
+}
+
+.create:hover {
+    background: linear-gradient(135deg, #79f043, #3ea60f);
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.45);
+}

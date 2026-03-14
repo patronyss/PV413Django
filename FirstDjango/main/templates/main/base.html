@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}  {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    {% block extra_css %}  {% endblock %}
+</head>
+<body>
+     <nav class="navbar">
+         <img class="nav-logo" src="{% static 'main/img/logo.png' %}" alt="Логотип">
+         <div class="nav-links">
+             <a class="nav-link" href="{% url 'index' %}">Головна</a>
+             <a class="nav-link" href="{% url 'all_workers' %}">Всі робітники</a>
+             <a class="nav-link" href="#">Про нас</a>
+             <a class="nav-link" href="#">Контакти</a>
+         </div>
+     </nav>
+
+    <main class="main-container">
+        <div class="content-box">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+
+</body>
+</html>

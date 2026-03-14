@@ -1,0 +1,11 @@
+.venv
+.env
+.idea
+*.xml
+*.sqlite3
+*.pyc
+media
+__pycache__
+venv
+migrations
+staticfiles

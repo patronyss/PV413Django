@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+{% endblock %}
+
+{% block title %} Головна сторінка {% endblock %}
+
+{% block content %}
+    <h1>Кількість робітників: {{workers_count}}</h1>
+    {% if user.is_authenticated %}
+        <h2>Привіт, {{user.username}}</h2>
+        <h2>Твої сповіщення:</h2>
+
+        {% for notification in user.notifications.all %}
+            <h2>|{{notification.date_created}}|:  {{notification.text}}</h2>
+        {% endfor %}
+    {% else %}
+        <h2>Ви увійшли як гость!</h2>
+    {% endif %}
+
+    <h2>Передбачення: {{prediction}} </h2>
+
+    <div class="auth-buttons">
+        {% if not user.is_authenticated %}
+            <a href="{% url 'login' %}">Увійти</a>
+            <a href="{% url 'register' %}">Реєстрація</a>
+        {% else %}
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Вийти</button>
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}

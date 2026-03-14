@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Видалити {{worker.name}} {% endblock %}
+
+{% block content %}
+    <h1>Звільнення робітника назавжди видалить його з бази!</h1>
+    <h1>Звільнити робітника {{worker.name}}?</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">ЗВІЛЬНИТИ</button>
+    </form>
+{% endblock %}
